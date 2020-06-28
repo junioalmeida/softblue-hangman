@@ -3,14 +3,13 @@ package almeida.ferreira.junio.hangman.game;
 import java.util.HashSet;
 import java.util.Set;
 
+import almeida.ferreira.junio.hangman.core.Config;
 import almeida.ferreira.junio.hangman.core.Dictionary;
 import almeida.ferreira.junio.hangman.core.InvalidCharacterException;
 import almeida.ferreira.junio.hangman.core.Word;
 import almeida.ferreira.junio.hangman.ui.UI;
 
 public class Game {
-
-	private static final int MAX_ERRORS = 7;
 
 	private Dictionary dictionary;
 	private Word word;
@@ -20,7 +19,6 @@ public class Game {
 
 	public Game() {
 		dictionary = Dictionary.getInstance();
-		attempts = MAX_ERRORS;
 		usedChars = new HashSet<>();
 	}
 
@@ -29,9 +27,13 @@ public class Game {
 		UI.printGameTitle();
 
 		word = dictionary.getRandomWord();
-
+		int maxErrors = Integer.parseInt(Config.get("maxErrors"));
+		
+		attempts = maxErrors;
+		
 		UI.printNewLine();
 		UI.print("A palavra possui " + word.size() + " letras.");
+		UI.print("Você pode errar no máximo " + maxErrors + " vez(es)");
 
 		char letter;
 
