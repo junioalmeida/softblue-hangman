@@ -22,10 +22,8 @@ public class UI {
 		print("=================");
 		print("| JOGO DA FORCA |");
 		print("=================");
-		printNewLine();
 	}
 
-	
 	public static char readChar(String text) throws InvalidCharacterException {
 		System.out.print(text + " ");
 
@@ -37,17 +35,17 @@ public class UI {
 		if (str.trim().isEmpty()) {
 			throw new InvalidCharacterException("Nenhuma letra foi digitada.");
 		}
-		
-		if(str.length() >  1) {
+
+		if (str.length() > 1) {
 			throw new InvalidCharacterException("Apenas uma letra deve ser digitada.");
 		}
-		
+
 		char c = str.charAt(0);
-		
-		if(!Character.isLetter(c)) {
+
+		if (!Character.isLetter(c)) {
 			throw new InvalidCharacterException("Apenas letras devem ser digitadas.");
 		}
-		
+
 		return c;
 
 	}

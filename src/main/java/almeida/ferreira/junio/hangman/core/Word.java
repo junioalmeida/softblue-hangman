@@ -8,7 +8,7 @@ public class Word {
 
 	public Word(String oringinalWord) {
 		this.originalWord = oringinalWord.toUpperCase();
-		
+
 		foundLetters = new char[oringinalWord.length()];
 
 		for (int i = 0; i < foundLetters.length; i++) {
@@ -17,9 +17,9 @@ public class Word {
 	}
 
 	public boolean checkLetter(char letter) {
-		
+
 		letter = Character.toUpperCase(letter);
-		
+
 		int index = originalWord.indexOf(letter);
 
 		if (index == -1) {
@@ -45,7 +45,7 @@ public class Word {
 
 		return true;
 	}
-	
+
 	@Override
 	public String toString() {
 		StringBuilder wordBuilder = new StringBuilder();
@@ -59,6 +59,14 @@ public class Word {
 		wordBuilder.deleteCharAt(wordBuilder.length() - 1);
 
 		return wordBuilder.toString();
+	}
+
+	public String getOriginalWord() {
+		return originalWord;
+	}
+
+	public int size() {
+		return originalWord.length();
 	}
 
 }
