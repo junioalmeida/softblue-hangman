@@ -18,4 +18,8 @@ public class Config {
 	public static String get(String property) {
 		return props.getProperty(property);
 	}
+	
+	public static void set(String property, String value) {
+		props.setProperty(property, value);
+	}
 }

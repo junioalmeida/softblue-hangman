@@ -22,18 +22,24 @@ public class Game {
 		usedChars = new HashSet<>();
 	}
 
-	public void start() {
+	public void start(String[] args) {
 
 		UI.printGameTitle();
 
 		word = dictionary.getRandomWord();
+		
+		if(args.length > 0) {
+			Config.set("maxErrors", args[0]);
+		}
+		
 		int maxErrors = Integer.parseInt(Config.get("maxErrors"));
 		
 		attempts = maxErrors;
 		
 		UI.printNewLine();
-		UI.print("A palavra possui " + word.size() + " letras.");
-		UI.print("Você pode errar no máximo " + maxErrors + " vez(es)");
+		UI.print("-A palavra possui " + word.size() + " letras.");
+		UI.print("-Você pode errar no máximo " + maxErrors + " vez(es)");
+		UI.print("======================================");
 
 		char letter;
 

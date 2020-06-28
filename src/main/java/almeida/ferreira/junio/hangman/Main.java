@@ -26,7 +26,7 @@ public class Main {
 			}
 
 			if (Character.toUpperCase(choice) == 'S') {
-				game.start();
+				game.start(args);
 			} else if (Character.toUpperCase(choice) == 'N') {
 				UI.printNewLine();
 				UI.print("Fim do Jogo!");
