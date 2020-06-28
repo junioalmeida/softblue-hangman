@@ -10,11 +10,22 @@ import almeida.ferreira.junio.hangman.utils.RandomUtils;
 public class Dictionary {
 
 	private static final String FILE_NAME = "dictionary.txt";
+	
+	private static Dictionary instance;
+	
 	private List<String> dictionary;
 
-	public Dictionary() {
+	
+	private Dictionary() {
 		dictionary = new ArrayList<>();
 		loadDictionary();
+	}
+	
+	public static Dictionary getInstance() {
+		if(instance == null) {
+			instance = new Dictionary();
+		}
+		return instance;
 	}
 
 	public Word getRandomWord() {
