@@ -18,15 +18,17 @@ public class Game {
 	private Set<Character> usedChars;
 
 	public Game() {
-		dictionary = Dictionary.getInstance();
 		usedChars = new HashSet<>();
 	}
 
 	public void start(String[] args) {
 
 		UI.printGameTitle();
-
-		word = dictionary.getRandomWord();
+		
+		dictionary = Dictionary.getInstance();
+		word = dictionary.getWord();
+		
+		usedChars.clear();
 		
 		if(args.length > 0) {
 			Config.set("maxErrors", args[0]);
@@ -37,6 +39,7 @@ public class Game {
 		attempts = maxErrors;
 		
 		UI.printNewLine();
+		UI.print("-Dicionário utilizado: " + dictionary.getName());
 		UI.print("-A palavra possui " + word.size() + " letras.");
 		UI.print("-Você pode errar no máximo " + maxErrors + " vez(es)");
 		UI.print("======================================");
